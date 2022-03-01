@@ -119,7 +119,7 @@ app.get('/app', (req, res)  => {
 
 app.get('/app/flips/:number', (req, res) => {
     let flips_raw = coinFlips(req.params.number)
-    let flips_data = countFlips(flips)
+    let flips_data = countFlips(flips_raw)
     res.type('text/json')
     res.status(200).json({"raw": flips_raw, "summary": flips_data})
 })
