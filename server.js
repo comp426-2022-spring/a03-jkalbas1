@@ -118,9 +118,20 @@ app.get('/app', (req, res)  => {
 })
 
 app.get('/app/flips/:number', (req, res) => {
-    const flp = flips(req.params.number)
-    res.type('application/javascript')
-    res.status(200).send(flp)
+    const manyFlips = flips(req.params.number)
+    res.type('text/json')
+    res.status(200).send(manyFlips)
+})
+
+app.get('/app/flip', (req, res) => {
+    res.type('text/json')
+    res.status(200).send(flip())
+})
+
+app.get('/app/flip/call/:guess', (req, res) => {
+    const guessedFlip = guessFlip(req.params.guess)
+    res.type('text/json')
+    res.status(200).send(guessedFlip)
 })
 
 app.use(function(req, res){
