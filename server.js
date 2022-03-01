@@ -120,12 +120,12 @@ app.get('/app', (req, res)  => {
 app.get('/app/flips/:number', (req, res) => {
     const manyFlips = flips(req.params.number)
     res.type('text/json')
-    res.status(200).send(manyFlips)
+    res.status(200).json({"raw": manyFlips})
 })
 
 app.get('/app/flip', (req, res) => {
     res.type('text/json')
-    res.status(200).send(flip())
+    res.status(200).json({"flip": flip()})
 })
 
 app.get('/app/flip/call/:guess', (req, res) => {
