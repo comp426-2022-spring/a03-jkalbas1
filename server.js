@@ -119,7 +119,8 @@ app.get('/app', (req, res)  => {
 
 app.get('/app/flips/:number', (req, res) => {
     const flp = flips(req.params.number)
-    res.end(flp)
+    res.type('application/javascript')
+    res.status(200).send(flp)
 })
 
 app.use(function(req, res){
