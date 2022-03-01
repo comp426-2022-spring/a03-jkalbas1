@@ -119,8 +119,10 @@ app.get('/app', (req, res)  => {
 
 app.get('/app/flips/:number', (req, res) => {
     const manyFlips = flips(req.params.number)
+    let flips_raw = coinFlips(number)
+    let flips_data = countFlips(flips)
     res.type('text/json')
-    res.status(200).json({"raw": manyFlips})
+    res.status(200).json({"raw": flips_raw, "summary": flips_data})
 })
 
 app.get('/app/flip', (req, res) => {
