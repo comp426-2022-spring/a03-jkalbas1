@@ -4,7 +4,7 @@
   "description": "Create an API",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js --port=3000"
+    "test": "node server.js --port=3010"
   },
   "repository": {
     "type": "git",
